@@ -28,7 +28,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="orderit"
+        name="index"
         options={{
           title: "Orderit",
           tabBarIcon: ({ color, focused }) => (
