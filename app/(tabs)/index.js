@@ -93,6 +93,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     zIndex: 10,
+    marginHorizontal: -50,
   },
   bImageCont: {
     position: "absolute",
@@ -108,7 +109,7 @@ const styles = StyleSheet.create({
     borderRadius: 45,
   },
   orderContainer: {
-    // backgroundColor: 'red',
+    backgroundColor: "white",
     zIndex: 20,
     paddingHorizontal: 20,
   },
