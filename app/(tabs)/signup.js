@@ -16,10 +16,10 @@ const SignupScreen = () => {
         <CustomInput style={styles.input} placeholder="John Doe" />
 
         <Text style={styles.inputLable}>Your Email</Text>
-        <CustomInput style={styles.input} placeholder="" />
+        <CustomInput style={styles.input} placeholder="Email" />
 
         <Text style={styles.inputLable}>Your Whatsapp Number</Text>
-        <CustomInput style={styles.input} placeholder="" />
+        <CustomInput style={styles.input} placeholder="Whatsapp Number" />
 
         <Text style={styles.inputLable}>Password</Text>
         <CustomInputPass style={styles.input} placeholder="Password" />
