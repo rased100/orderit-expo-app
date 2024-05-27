@@ -1,12 +1,12 @@
 import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 
-const ChineseItems = () => {
+const ChineseItems = ({ item }) => {
   // console.log(item, "otem in ci");
   return (
     <View style={styles.container}>
       <View>
-        <Text style={styles.bText}>Briyani something</Text>
+        <Text style={styles.bText}>{item.name}</Text>
         <Text style={styles.bText}>$14.00</Text>
         <Text style={styles.sText}>Some notes about food</Text>
       </View>

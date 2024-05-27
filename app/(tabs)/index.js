@@ -12,19 +12,22 @@ import ChineseItems from "../components/ChineseItems";
 
 const Orderit = () => {
   const [items, setItems] = useState([]);
+  const [categoryItems, setCategoryItems] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  console.log(items, "show my log items");
+  console.log(items, "items");
 
-  const myItems = items?.categories;
-  console.log(myItems, "show myItems");
+  // const categoryItems = items?.categories;
+  console.log(categoryItems, "categoryItems");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch("https://m.orderit.today/api/menu/36"); // Replace with your actual API URL
         const data = await response.json();
+        const category = data?.categories;
         setItems(data);
+        setCategoryItems(category);
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
@@ -92,16 +95,19 @@ const Orderit = () => {
           {/* Chinese  */}
 
           <View>
-            <ScrollView style={styles.chineseItems}>
-              <Text style={styles.chText}>chimess</Text>
-              <ChineseItems />
-              <ChineseItems />
-              <ChineseItems />
-              <ChineseItems />
-              <ChineseItems />
-              <ChineseItems />
-              <ChineseItems />
-            </ScrollView>
+            {categoryItems.map((category) => (
+              <View key={category.id}>
+                <View style={styles.chineseItems}>
+                  <Text style={styles.chText}>{category.name}</Text>
+
+                  {category.items.map((item) => (
+                    <View key={item.id}>
+                      <ChineseItems item={item} />
+                    </View>
+                  ))}
+                </View>
+              </View>
+            ))}
           </View>
         </View>
       </View>
