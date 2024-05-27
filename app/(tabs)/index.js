@@ -23,7 +23,7 @@ const Orderit = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("https://m.orderit.today/api/menu/36"); // Replace with your actual API URL
+        const response = await fetch("https://m.orderit.today/api/menu/66"); // Replace with your actual API URL
         const data = await response.json();
         const category = data?.categories;
         setItems(data);
