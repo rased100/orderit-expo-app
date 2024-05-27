@@ -1,9 +1,44 @@
-import React from "react";
-import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
+import React, { useEffect, useState } from "react";
+import {
+  ActivityIndicator,
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import FeaturedItems from "../components/FeaturedItems";
 import ChineseItems from "../components/ChineseItems";
 
 const Orderit = () => {
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  console.log(items, "show my log items");
+
+  const myItems = items?.categories;
+  console.log(myItems, "show myItems");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("https://m.orderit.today/api/menu/36"); // Replace with your actual API URL
+        const data = await response.json();
+        setItems(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <ActivityIndicator size="large" color="#0000ff" />;
+  }
+
   return (
     <ScrollView>
       <View>
@@ -55,17 +90,17 @@ const Orderit = () => {
             <View style={styles.hrLine}></View>
           </View>
           {/* Chinese  */}
-          <View>
-            <Text style={styles.chText}>Chinese</Text>
-            <ScrollView style={styles.chineseItems}>
-              <ChineseItems />
-              <ChineseItems />
-              <ChineseItems />
-              <ChineseItems />
-              <ChineseItems />
-              <ChineseItems />
 
-              {/* <Text>FeaturedItems</Text> */}
+          <View>
+            <ScrollView style={styles.chineseItems}>
+              <Text style={styles.chText}>chimess</Text>
+              <ChineseItems />
+              <ChineseItems />
+              <ChineseItems />
+              <ChineseItems />
+              <ChineseItems />
+              <ChineseItems />
+              <ChineseItems />
             </ScrollView>
           </View>
         </View>

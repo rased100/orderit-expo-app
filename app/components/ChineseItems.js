@@ -2,6 +2,7 @@ import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 
 const ChineseItems = () => {
+  // console.log(item, "otem in ci");
   return (
     <View style={styles.container}>
       <View>
