@@ -8,7 +8,7 @@ import {
   View,
 } from "react-native";
 import FeaturedItems from "../components/FeaturedItems";
-import ChineseItems from "../components/ChineseItems";
+import CategoryItems from "../components/CategoryItems";
 
 const Orderit = () => {
   const [items, setItems] = useState([]);
@@ -68,8 +68,10 @@ const Orderit = () => {
         {/* orderContainer */}
         <View style={styles.orderContainer}>
           <View>
-            <Text style={styles.orderText}>Order It Lounge</Text>
-            <Text style={styles.number}>347 234 2343</Text>
+            {/* <Text style={styles.orderText}>Order It Lounge</Text> */}
+            <Text style={styles.orderText}>{items.restaurantName}</Text>
+            {/* <Text style={styles.number}>347 234 2343</Text> */}
+            <Text style={styles.number}>{items.phone}</Text>
           </View>
           {/* hr Line */}
           <View style={styles.hrCont}>
@@ -102,7 +104,7 @@ const Orderit = () => {
 
                   {category.items.map((item) => (
                     <View key={item.id}>
-                      <ChineseItems item={item} />
+                      <CategoryItems item={item} />
                     </View>
                   ))}
                 </View>

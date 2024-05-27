@@ -1,19 +1,27 @@
 import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 
-const ChineseItems = ({ item }) => {
+const CategoryItems = ({ item }) => {
   // console.log(item, "otem in ci");
   return (
     <View style={styles.container}>
-      <View>
+      <View style={styles.textContainer}>
         <Text style={styles.bText}>{item.name}</Text>
-        <Text style={styles.bText}>$14.00</Text>
-        <Text style={styles.sText}>Some notes about food</Text>
+        <Text style={styles.bText}>${item.price}</Text>
+        <Text style={styles.sText}>{item.description}</Text>
+        {/* <Text style={styles.sText}>
+          {item.description
+            ? item.description
+            : "No information about this product"}
+        </Text> */}
       </View>
       <View>
         <Image
           style={styles.image}
-          source={require("@/assets/images/food.png")}
+          // source={require("@/assets/images/food.png")}
+          source={{
+            uri: `${item.imageUrl}`,
+          }}
         />
 
         <View style={styles.plusCont}>
@@ -24,7 +32,7 @@ const ChineseItems = ({ item }) => {
   );
 };
 
-export default ChineseItems;
+export default CategoryItems;
 
 const styles = StyleSheet.create({
   container: {
@@ -33,6 +41,9 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
+  },
+  textContainer: {
+    maxWidth: "80%",
   },
   image: {
     height: 65,
